@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Portfolio KOUASSI Fidèle</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <div class="login-logo">ADMIN</div>
+            <h2 class="login-title">Portfolio KOUASSI Fidèle</h2>
+            <p class="login-subtitle">Panneau d'administration</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" id="loginPassword" placeholder="Entrez le mot de passe" required>
+                </div>
+                <button type="submit" class="btn-save">Se Connecter</button>
+                <p class="login-hint">Mot de passe par défaut : <code>admin2026</code></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel" style="display:none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">ADMIN</div>
+                <p class="sidebar-subtitle">Portfolio Manager</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="profile">
+                    <span class="nav-icon">👤</span> Profil
+                </a>
+                <a href="#" class="nav-item" data-section="about">
+                    <span class="nav-icon">📝</span> À Propos
+                </a>
+                <a href="#" class="nav-item" data-section="formation">
+                    <span class="nav-icon">🎓</span> Formation
+                </a>
+                <a href="#" class="nav-item" data-section="skills">
+                    <span class="nav-icon">⚡</span> Compétences
+                </a>
+                <a href="#" class="nav-item" data-section="projects">
+                    <span class="nav-icon">🚀</span> Projets
+                </a>
+                <a href="#" class="nav-item" data-section="gallery">
+                    <span class="nav-icon">🖼️</span> Galerie
+                </a>
+                <a href="#" class="nav-item" data-section="experience">
+                    <span class="nav-icon">💼</span> Expérience
+                </a>
+                <a href="#" class="nav-item" data-section="stats">
+                    <span class="nav-icon">📊</span> Statistiques
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn-view-site">Voir le Site</a>
+                <button class="btn-logout" id="logoutBtn">Déconnexion</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1 id="sectionTitle">Profil</h1>
+                <div class="header-actions">
+                    <button class="btn-reset" id="resetBtn">Réinitialiser</button>
+                    <button class="btn-save" id="saveBtn">Sauvegarder</button>
+                </div>
+            </header>
+
+            <div class="admin-content" id="adminContent">
+                <!-- Content loaded dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="siteData.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

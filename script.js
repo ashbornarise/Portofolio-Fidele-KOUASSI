@@ -115,6 +115,46 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
+// Video gallery play functionality
+document.querySelectorAll('.gallery-video').forEach(item => {
+    const playBtn = item.querySelector('.video-play-btn');
+    const video = item.querySelector('video');
+
+    if (playBtn && video) {
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            modalVideo.src = video.src;
+            modal.classList.add('active');
+            modalVideo.play();
+        });
+    }
+});
+
+// Video modal close
+const videoModal = document.getElementById('videoModal');
+const videoModalClose = document.getElementById('videoModalClose');
+const modalVideo = document.getElementById('modalVideo');
+
+if (videoModalClose) {
+    videoModalClose.addEventListener('click', () => {
+        modalVideo.pause();
+        modalVideo.src = '';
+        videoModal.classList.remove('active');
+    });
+}
+
+if (videoModal) {
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            modalVideo.pause();
+            modalVideo.src = '';
+            videoModal.classList.remove('active');
+        }
+    });
+}
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

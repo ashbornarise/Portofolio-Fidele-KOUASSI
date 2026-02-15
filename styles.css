@@ -938,6 +938,107 @@ section {
     font-weight: 600;
 }
 
+/* Video Gallery Items */
+.gallery-video {
+    position: relative;
+}
+
+.gallery-video video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.gallery-video:hover video {
+    transform: scale(1.1);
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 212, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--dark-bg);
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.video-play-btn:hover {
+    background: var(--primary-cyan);
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.8);
+}
+
+.gallery-video.playing .video-play-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gallery-video.playing:hover .video-play-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Video Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.video-modal video {
+    max-width: 90%;
+    max-height: 85vh;
+    border: 2px solid var(--primary-cyan);
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 212, 255, 0.2);
+    border: 2px solid var(--primary-cyan);
+    border-radius: 50%;
+    color: var(--primary-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.video-modal-close:hover {
+    background: var(--primary-cyan);
+    color: var(--dark-bg);
+}
+
 /* Experience Section */
 .experience-grid {
     display: grid;

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(copy \"c:\\\\Users\\\\Clement AGBALENYO\\\\Documents\\\\GitHub\\\\Portofolio-Fidele kouassi\\\\WhatsApp Image 2026-02-14 at 17.52.40.jpeg\" \"c:\\\\Users\\\\Clement AGBALENYO\\\\Documents\\\\GitHub\\\\Portofolio-Fidele kouassi\\\\images\\\\maintenance-navale-otam.jpeg\")",
-      "Bash(copy:*)"
+      "Bash(copy:*)",
+      "Bash(ls:*)",
+      "Bash(git add:*)"
     ]
   }
 }
