@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOUASSI Fidèle | Portfolio Ingénieur Mécanique</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/favicon-192.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="grid-background"></div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating Gears -->
+    <div class="floating-gears">
+        <svg class="gear gear-1" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="15" x2="50" y2="25" stroke="currentColor" stroke-width="3"/>
+            <line x1="50" y1="75" x2="50" y2="85" stroke="currentColor" stroke-width="3"/>
+            <line x1="15" y1="50" x2="25" y2="50" stroke="currentColor" stroke-width="3"/>
+            <line x1="75" y1="50" x2="85" y2="50" stroke="currentColor" stroke-width="3"/>
+            <line x1="25" y1="25" x2="32" y2="32" stroke="currentColor" stroke-width="3"/>
+            <line x1="68" y1="68" x2="75" y2="75" stroke="currentColor" stroke-width="3"/>
+            <line x1="75" y1="25" x2="68" y2="32" stroke="currentColor" stroke-width="3"/>
+            <line x1="32" y1="68" x2="25" y2="75" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <svg class="gear gear-2" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="15" x2="50" y2="25" stroke="currentColor" stroke-width="3"/>
+            <line x1="50" y1="75" x2="50" y2="85" stroke="currentColor" stroke-width="3"/>
+            <line x1="15" y1="50" x2="25" y2="50" stroke="currentColor" stroke-width="3"/>
+            <line x1="75" y1="50" x2="85" y2="50" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <svg class="gear gear-3" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="15" x2="50" y2="25" stroke="currentColor" stroke-width="3"/>
+            <line x1="50" y1="75" x2="50" y2="85" stroke="currentColor" stroke-width="3"/>
+            <line x1="15" y1="50" x2="25" y2="50" stroke="currentColor" stroke-width="3"/>
+            <line x1="75" y1="50" x2="85" y2="50" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <svg class="gear gear-4" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="15" x2="50" y2="25" stroke="currentColor" stroke-width="3"/>
+            <line x1="50" y1="75" x2="50" y2="85" stroke="currentColor" stroke-width="3"/>
+            <line x1="15" y1="50" x2="25" y2="50" stroke="currentColor" stroke-width="3"/>
+            <line x1="75" y1="50" x2="85" y2="50" stroke="currentColor" stroke-width="3"/>
+        </svg>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">KOUASSI</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#formation">Formation</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Bienvenue sur mon Portfolio</span>
+                </div>
+                <div class="hero-greeting">KOUASSI FIDÈLE MADJÉ MESSAN</div>
+                <h1 class="hero-name">KOUASSI<br>FIDÈLE</h1>
+                <p class="hero-title">Étudiant en Génie Mécanique & Productique</p>
+                <p class="hero-description">
+                    Passionné par la robotique, l'automatisation et la conception mécanique.
+                    Je transforme des idées en solutions techniques concrètes et optimisées,
+                    avec un accent sur l'innovation et l'excellence en ingénierie.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">Découvrir Mes Projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me Contacter</a>
+                </div>
+                <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                    <span class="scroll-text">Scroll</span>
+                    <span class="scroll-arrow">↓</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="photo-container">
+                    <div class="photo-frame">
+                        <img src="images/maintenance-navale-otam.jpeg" alt="KOUASSI Fidèle - Ingénieur Mécanique">
+                        <div class="corner-decoration corner-tl"></div>
+                        <div class="corner-decoration corner-tr"></div>
+                        <div class="corner-decoration corner-bl"></div>
+                        <div class="corner-decoration corner-br"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <p class="quote-text">" Qui ne tente rien n'a rien "</p>
+        <p class="quote-author">— Ma citation préférée</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- About Section -->
+        <section id="about" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">À PROPOS DE MOI</h2>
+                <p class="section-subtitle">Découvrez mon parcours et ma passion pour l'ingénierie</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Je suis <strong>KOUASSI Fidèle Madjé Messan</strong>, étudiant en génie mécanique
+                        avec un fort intérêt pour la conception, la robotique et les solutions d'ingénierie innovantes.
+                        Actuellement en deuxième année de Licence, j'ai construit des bases solides en génie
+                        mécanique et technologies appliquées.
+                    </p>
+                    <p>
+                        Passionné par la transformation d'idées en systèmes mécaniques fonctionnels, efficaces
+                        et optimisés, mon travail combine précision technique, créativité et résolution de problèmes,
+                        avec un accent constant sur les applications du monde réel et le développement durable.
+                    </p>
+                    <p>
+                        Fort d'expériences variées en conception 3D, usinage, programmation et gestion de projets,
+                        j'ambitionne de devenir ingénieur spécialisé dans la robotique et la maintenance industrielle
+                        et nucléaire, contribuant ainsi à la modernisation des infrastructures industrielles.
+                    </p>
+                    <div class="cta-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-primary" onclick="alert('Ajoutez le lien de votre CV PDF ici'); return false;">Télécharger mon CV</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/maintenance-navale-otam.jpeg" alt="KOUASSI Fidèle - Maintenance Navale OTAM">
+                </div>
+            </div>
+        </section>
+
+        <!-- Formation Section -->
+        <section id="formation" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">FORMATION</h2>
+                <p class="section-subtitle">Mon parcours académique en génie mécanique</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023-2024</div>
+                    <div class="timeline-school">OBSERVATOIRE PANAFRICAIN (OPEM)</div>
+                    <div class="timeline-degree">Baccalauréat série E</div>
+                    <div class="timeline-description">
+                        <p>Formation scientifique avec spécialisation en sciences de l'ingénieur,
+                        mathématiques et physique appliquée.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024-2025</div>
+                    <div class="timeline-school">ESIG GLOBAL SUCCESS</div>
+                    <div class="timeline-degree">Licence 1 - Génie Mécanique</div>
+                    <div class="timeline-description">
+                        <p>Introduction aux principes fondamentaux du génie mécanique :</p>
+                        <ul>
+                            <li>Mathématiques de l'ingénieur et physique appliquée</li>
+                            <li>Statique et mécanique de base</li>
+                            <li>Dessin technique et CAO</li>
+                            <li>Science des matériaux</li>
+                            <li>Procédés de fabrication</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2025-2026</div>
+                    <div class="timeline-school">ESIG GLOBAL SUCCESS</div>
+                    <div class="timeline-degree">Licence 2 - Génie Mécanique & Productique</div>
+                    <div class="timeline-description">
+                        <p>Développement de compétences en ingénierie appliquée :</p>
+                        <ul>
+                            <li>Conception mécanique avancée (SolidWorks, AutoCAD, Fusion 360)</li>
+                            <li>Résistance des matériaux et analyse structurelle</li>
+                            <li>Cinématique et dynamique des mécanismes</li>
+                            <li>Robotique et automatisation industrielle</li>
+                            <li>Gestion de projet et leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">COMPÉTENCES</h2>
+                <p class="section-subtitle">Mes domaines d'expertise en génie mécanique et technologies</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <span class="skill-icon">🎨</span>
+                    <h3 class="skill-title">CAO/CAD</h3>
+                    <p class="skill-description">
+                        Maîtrise de SolidWorks, AutoCAD, Fusion 360 et Blender pour la modélisation 3D
+                        et la conception mécanique avancée.
+                    </p>
+                </div>
+
+                <div class="skill-card reveal">
+                    <span class="skill-icon">⚙️</span>
+                    <h3 class="skill-title">Robotique & Automatisation</h3>
+                    <p class="skill-description">
+                        Conception de systèmes robotiques intelligents, automatisation industrielle
+                        et programmation Arduino.
+                    </p>
+                </div>
+
+                <div class="skill-card reveal">
+                    <span class="skill-icon">🔧</span>
+                    <h3 class="skill-title">Fabrication & Usinage</h3>
+                    <p class="skill-description">
+                        Expertise en impression 3D, soudure, menuiserie, machines CNC et
+                        procédés de fabrication mécanique.
+                    </p>
+                </div>
+
+                <div class="skill-card reveal">
+                    <span class="skill-icon">💻</span>
+                    <h3 class="skill-title">Programmation</h3>
+                    <p class="skill-description">
+                        Compétences en Python, HTML, Arduino IDE pour l'automatisation
+                        et le contrôle de systèmes.
+                    </p>
+                </div>
+
+                <div class="skill-card reveal">
+                    <span class="skill-icon">📊</span>
+                    <h3 class="skill-title">Maintenance Industrielle</h3>
+                    <p class="skill-description">
+                        Maintenance mécanique, navale, diagnostic et réparation de systèmes
+                        électromécaniques complexes.
+                    </p>
+                </div>
+
+                <div class="skill-card reveal">
+                    <span class="skill-icon">👥</span>
+                    <h3 class="skill-title">Gestion de Projet</h3>
+                    <p class="skill-description">
+                        Leadership d'équipe, coordination pluridisciplinaire, planification
+                        et livraison de solutions techniques.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">MES PROJETS</h2>
+                <p class="section-subtitle">Découvrez mes réalisations techniques les plus significatives</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+                    <div class="project-number">01</div>
+                    <div class="project-image">
+                        <img src="images/formation-atelier-usinage.jpeg" alt="Formation pratique en atelier">
+                        <div class="project-icon">🤖</div>
+                        <div class="mechanical-overlay">
+                            <div class="mech-line mech-line-1"></div>
+                            <div class="mech-line mech-line-2"></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bras Robotique Industriel</h3>
+                        <p class="project-location">ESIG Global Success • Octobre-Novembre 2025</p>
+                        <p class="project-description">
+                            Conception et fabrication complète d'un bras robotique industriel pour
+                            automatiser les tâches de manipulation. Participation à un concours
+                            interuniversitaire de pitch et innovation avec démonstration de compétences
+                            en robotique et automatisation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Robotique</span>
+                            <span class="tag">Automatisation</span>
+                            <span class="tag">CAO 3D</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <div class="project-number">02</div>
+                    <div class="project-image">
+                        <div class="project-icon">⚡</div>
+                        <div class="mechanical-overlay">
+                            <div class="mech-line mech-line-1"></div>
+                            <div class="mech-line mech-line-2"></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Véhicule Électrique Compact</h3>
+                        <p class="project-location">ESIG Global Success • Mai 2025</p>
+                        <p class="project-description">
+                            Chef de projet pour la conception et fabrication d'un véhicule électrique
+                            compact dédié à la logistique interne industrielle. Coordination d'équipe
+                            pluridisciplinaire et gestion complète des ressources durant la semaine
+                            de professionnalisation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Chef de Projet</span>
+                            <span class="tag">Mobilité Électrique</span>
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Logistique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+                    <div class="project-number">03</div>
+                    <div class="project-image">
+                        <div class="project-icon">⚙️</div>
+                        <div class="mechanical-overlay">
+                            <div class="mech-line mech-line-1"></div>
+                            <div class="mech-line mech-line-2"></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bobinage de Moteur Asynchrone</h3>
+                        <p class="project-location">2CIT Centre d'Innovation • Août 2025</p>
+                        <p class="project-description">
+                            Formation approfondie en bobinage et rebobinage de moteurs asynchrones.
+                            Réalisation pratique de diagnostics et réparations sur moteurs électriques,
+                            avec acquisition de compétences en maintenance et fiabilité des systèmes
+                            électromécaniques.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Électromécanique</span>
+                            <span class="tag">Maintenance</span>
+                            <span class="tag">Moteurs</span>
+                            <span class="tag">Diagnostic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal">
+                    <div class="project-number">04</div>
+                    <div class="project-image">
+                        <img src="images/maintenance-navale-otam.jpeg" alt="Maintenance navale OTAM">
+                        <div class="project-icon">🔧</div>
+                        <div class="mechanical-overlay">
+                            <div class="mech-line mech-line-1"></div>
+                            <div class="mech-line mech-line-2"></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Maintenance Navale & Ponts Élévateurs</h3>
+                        <p class="project-location">OTAM & 2CIT • Juillet-Août 2024 & Février 2025</p>
+                        <p class="project-description">
+                            Travaux de maintenance et mécanique navale chez OTAM (Omnium Togolais
+                            Assistance Maritime). Installation et maintenance professionnelle de ponts
+                            élévateurs pour ateliers automobiles de concessionnaires. Optimisation
+                            des équipements et amélioration de la fiabilité des systèmes.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Maintenance Navale</span>
+                            <span class="tag">Installation</span>
+                            <span class="tag">Automobile</span>
+                            <span class="tag">Optimisation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">GALERIE PHOTOS</h2>
+                <p class="section-subtitle">Découvrez mes projets en images</p>
+            </div>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Tout</button>
+                <button class="filter-btn" data-filter="robotique">Robotique</button>
+                <button class="filter-btn" data-filter="cao">CAO / SolidWorks</button>
+                <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+                <button class="filter-btn" data-filter="projets">Projets</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal" data-category="maintenance">
+                    <img src="images/maintenance-navale-otam.jpeg" alt="Maintenance Navale OTAM">
+                    <div class="gallery-overlay">
+                        <p class="gallery-category">Maintenance</p>
+                        <p class="gallery-title">Stage Maintenance Navale - OTAM</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-category="robotique">
+                    <img src="images/formation-atelier-usinage.jpeg" alt="Formation pratique en atelier OPEM">
+                    <div class="gallery-overlay">
+                        <p class="gallery-category">Robotique</p>
+                        <p class="gallery-title">Formation Pratique - Atelier Mécanique OPEM</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-category="maintenance">
+                    <img src="images/maintenance-navale-otam.jpeg" alt="Chantier Naval OTAM">
+                    <div class="gallery-overlay">
+                        <p class="gallery-category">Maintenance</p>
+                        <p class="gallery-title">Chantier Naval - OTAM Lomé</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" data-category="projets">
+                    <img src="images/formation-atelier-usinage.jpeg" alt="Atelier d'usinage OPEM & AKT">
+                    <div class="gallery-overlay">
+                        <p class="gallery-category">Projets</p>
+                        <p class="gallery-title">Atelier d'Usinage - Perceuse à Colonne</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">EXPÉRIENCE</h2>
+                <p class="section-subtitle">Mon parcours professionnel et académique</p>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Chef de Projet</h3>
+                            <p class="experience-company">ESIG Global Success - Semaine de Professionnalisation</p>
+                        </div>
+                        <div class="experience-year">Mai 2025</div>
+                    </div>
+                    <p class="experience-description">
+                        Pilotage complet de la conception et fabrication d'un véhicule électrique compact
+                        dédié à la logistique interne industrielle. Coordination d'une équipe pluridisciplinaire,
+                        gestion des ressources et des délais. Livraison réussie d'un prototype fonctionnel
+                        avec présentation technique devant un jury d'experts.
+                    </p>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Stagiaire - Atelier Mécanique</h3>
+                            <p class="experience-company">Atelier de Fabrication Mécanique - Lomé</p>
+                        </div>
+                        <div class="experience-year">Oct 2025</div>
+                    </div>
+                    <p class="experience-description">
+                        Réalisation d'opérations d'usinage, soudure et menuiserie. Apprentissage pratique
+                        de la fabrication mécanique et suivi des processus de production. Assistance au
+                        montage et à la mise en marche de machines CNC avec formation aux standards
+                        de sécurité industrielle.
+                    </p>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Stagiaire - Formation Bobinage Moteur</h3>
+                            <p class="experience-company">2CIT, Centre de Conception et d'Innovation Technologique</p>
+                        </div>
+                        <div class="experience-year">Août 2025</div>
+                    </div>
+                    <p class="experience-description">
+                        Apprentissage approfondi des techniques de bobinage et rebobinage de moteurs
+                        asynchrones. Réalisation pratique de diagnostics et réparations sur moteurs électriques.
+                        Acquisition de compétences essentielles en maintenance et fiabilité des systèmes
+                        électromécaniques industriels.
+                    </p>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Technicien - Installation & Maintenance</h3>
+                            <p class="experience-company">2CIT, Centre de Conception et d'Innovation Technologique</p>
+                        </div>
+                        <div class="experience-year">Fév 2025</div>
+                    </div>
+                    <p class="experience-description">
+                        Installation et maintenance de ponts élévateurs pour ateliers mécaniques de
+                        concessionnaires automobiles. Participation à l'optimisation des équipements et
+                        à l'amélioration de la fiabilité des systèmes. Application rigoureuse des normes
+                        de sécurité et des procédures de maintenance préventive.
+                    </p>
+                </div>
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Stagiaire - Chantier Naval</h3>
+                            <p class="experience-company">OTAM, Omnium Togolais Assistance Maritime</p>
+                        </div>
+                        <div class="experience-year">Juil-Août 2024</div>
+                    </div>
+                    <p class="experience-description">
+                        Travaux de maintenance et mécanique navale en section mécanique. Participation
+                        active aux opérations de réparation et d'entretien des équipements maritimes.
+                        Acquisition d'une expérience précieuse en maintenance industrielle dans un
+                        environnement maritime exigeant.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Projets Réalisés</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Technologies Maîtrisées</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-label">Logiciels CAO/DAO</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Stages & Expériences</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">CONTACTEZ-MOI</h2>
+                <p class="section-subtitle">N'hésitez pas à me contacter pour des collaborations, projets ou opportunités</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/22893737798" target="_blank">+228 93 73 77 98</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:kfidelemadejemessan@gmail.com">kfidelemadejemessan@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🔗</div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/fid%C3%A8le-madj%C3%A9-messan-kouassi/" target="_blank">Fidèle Madjé Messan KOUASSI</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Localisation</h4>
+                            <p>Lomé, Togo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-image">
+                    <img src="images/maintenance-navale-otam.jpeg" alt="KOUASSI Fidèle - Contact">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-quote">Qui ne tente rien n'a rien</p>
+            <p class="footer-name">KOUASSI FIDÈLE MADJÉ MESSAN</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/fid%C3%A8le-madj%C3%A9-messan-kouassi/" class="social-link" target="_blank" title="LinkedIn">in</a>
+                <a href="mailto:kfidelemadejemessan@gmail.com" class="social-link" title="Email">@</a>
+                <a href="https://wa.me/22893737798" class="social-link" target="_blank" title="WhatsApp">📱</a>
+                <a href="tel:+22893737798" class="social-link" title="Téléphone">☎</a>
+            </div>
+            <p class="footer-copyright">© 2026 KOUASSI Fidèle Madjé Messan. Tous droits réservés. | Portfolio créé avec passion</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
