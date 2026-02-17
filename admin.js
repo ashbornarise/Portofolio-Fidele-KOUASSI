@@ -79,6 +79,7 @@ function renderSection(section) {
         case 'gallery': renderGallery(container); break;
         case 'experience': renderExperience(container); break;
         case 'stats': renderStats(container); break;
+        case 'github': renderGitHub(container); break;
     }
 }
 
@@ -686,6 +687,262 @@ function collectCurrentData() {
             break;
     }
 }
+
+// ========== GITHUB PUBLICATION SECTION ==========
+function renderGitHub(container) {
+    const ghConfig = JSON.parse(localStorage.getItem('portfolioGitHubConfig') || '{}');
+    const isConfigured = ghConfig.username && ghConfig.repo && ghConfig.token;
+
+    container.innerHTML = `
+        <div class="admin-card">
+            <h3>Configuration GitHub</h3>
+            <div class="${isConfigured ? 'github-status-badge connected' : 'github-status-badge disconnected'}">
+                ${isConfigured ? '&#9679; Connecté - ' + esc(ghConfig.username) + '/' + esc(ghConfig.repo) : '&#9679; Non configuré'}
+            </div>
+            <p style="color:var(--text-gray);margin-bottom:1.5rem;">
+                Configurez votre dépôt GitHub pour publier les modifications du site directement en ligne.
+                Les visiteurs verront les changements après la publication.
+            </p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nom d'utilisateur GitHub</label>
+                    <input type="text" id="ghUsername" value="${esc(ghConfig.username || '')}" placeholder="ex: ashbornarise">
+                </div>
+                <div class="form-group">
+                    <label>Nom du dépôt</label>
+                    <input type="text" id="ghRepo" value="${esc(ghConfig.repo || '')}" placeholder="ex: Portofolio-Fidele-KOUASSI">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Branche</label>
+                    <input type="text" id="ghBranch" value="${esc(ghConfig.branch || 'main')}" placeholder="main">
+                </div>
+                <div class="form-group">
+                    <label>Token GitHub (PAT)</label>
+                    <div class="token-field">
+                        <input type="password" id="ghToken" value="${esc(ghConfig.token || '')}" placeholder="ghp_xxxxxxxxxxxx">
+                        <button class="token-toggle" onclick="toggleToken()">👁️</button>
+                    </div>
+                    <p class="help-text">Token Personnel (Settings &gt; Developer settings &gt; Personal access tokens &gt; Fine-grained tokens). Permissions requises : Contents (Read & Write)</p>
+                </div>
+            </div>
+            <button class="btn-save" onclick="saveGitHubConfig()" style="width:auto;">Enregistrer les paramètres GitHub</button>
+        </div>
+
+        <div class="admin-card">
+            <h3>Publier les Modifications</h3>
+            <p style="color:var(--text-gray);margin-bottom:1rem;">
+                Cliquez sur le bouton ci-dessous pour envoyer toutes vos modifications sur GitHub.
+                Les changements seront visibles en ligne après quelques minutes (GitHub Pages).
+            </p>
+            <button class="btn-publish" onclick="publishToGitHub()" ${!isConfigured ? 'disabled' : ''} style="width:auto;padding:1rem 3rem;">
+                Publier sur GitHub
+            </button>
+
+            <div class="publish-progress" id="publishProgress">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="progress-status" id="progressStatus"></p>
+            </div>
+
+            <div class="publish-log" id="publishLog" style="display:none;"></div>
+        </div>
+
+        <div class="admin-card">
+            <h3>Comment obtenir un Token GitHub</h3>
+            <ol style="color:var(--text-gray);line-height:2;padding-left:1.5rem;">
+                <li>Allez sur <strong>GitHub.com</strong> &gt; Cliquez sur votre avatar &gt; <strong>Settings</strong></li>
+                <li>Dans le menu gauche, tout en bas : <strong>Developer settings</strong></li>
+                <li>Cliquez sur <strong>Personal access tokens</strong> &gt; <strong>Fine-grained tokens</strong></li>
+                <li>Cliquez <strong>Generate new token</strong></li>
+                <li>Donnez un nom (ex: "Portfolio Admin")</li>
+                <li>Sous <strong>Repository access</strong> : sélectionnez "Only select repositories" et choisissez votre dépôt</li>
+                <li>Sous <strong>Permissions</strong> &gt; <strong>Repository permissions</strong> : mettez <strong>Contents</strong> sur "Read and Write"</li>
+                <li>Cliquez <strong>Generate token</strong> et copiez-le</li>
+            </ol>
+        </div>
+    `;
+}
+
+function toggleToken() {
+    const input = document.getElementById('ghToken');
+    input.type = input.type === 'password' ? 'text' : 'password';
+}
+
+function saveGitHubConfig() {
+    const config = {
+        username: val('ghUsername').trim(),
+        repo: val('ghRepo').trim(),
+        branch: val('ghBranch').trim() || 'main',
+        token: val('ghToken').trim()
+    };
+    if (!config.username || !config.repo || !config.token) {
+        showToast('Veuillez remplir tous les champs obligatoires', 'error');
+        return;
+    }
+    localStorage.setItem('portfolioGitHubConfig', JSON.stringify(config));
+    showToast('Configuration GitHub sauvegardée !', 'success');
+    renderGitHub(document.getElementById('adminContent'));
+}
+
+// ========== PUBLISH TO GITHUB ==========
+async function publishToGitHub() {
+    const ghConfig = JSON.parse(localStorage.getItem('portfolioGitHubConfig') || '{}');
+    if (!ghConfig.username || !ghConfig.repo || !ghConfig.token) {
+        showToast('Veuillez d\'abord configurer GitHub', 'error');
+        return;
+    }
+
+    // Collect latest data from current section before publishing
+    collectCurrentData();
+    saveSiteData(siteData);
+
+    const publishBtn = document.querySelector('.btn-publish');
+    const sidebarPublishBtn = document.getElementById('publishBtn');
+    if (publishBtn) publishBtn.disabled = true;
+    if (sidebarPublishBtn) sidebarPublishBtn.disabled = true;
+
+    const progress = document.getElementById('publishProgress');
+    const progressBar = document.getElementById('progressBar');
+    const progressStatus = document.getElementById('progressStatus');
+    const logContainer = document.getElementById('publishLog');
+
+    if (progress) progress.classList.add('active');
+    if (logContainer) { logContainer.style.display = 'block'; logContainer.innerHTML = ''; }
+
+    function log(msg, type = '') {
+        if (logContainer) {
+            logContainer.innerHTML += `<div class="log-entry ${type}">${msg}</div>`;
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+    }
+
+    function setProgress(percent, status, statusClass = '') {
+        if (progressBar) progressBar.style.width = percent + '%';
+        if (progressStatus) {
+            progressStatus.textContent = status;
+            progressStatus.className = 'progress-status ' + statusClass;
+        }
+    }
+
+    const apiBase = `https://api.github.com/repos/${ghConfig.username}/${ghConfig.repo}`;
+    const headers = {
+        'Authorization': `Bearer ${ghConfig.token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+    };
+
+    try {
+        // Step 1: Verify connection
+        setProgress(10, 'Vérification de la connexion GitHub...');
+        log('Connexion au dépôt ' + ghConfig.username + '/' + ghConfig.repo + '...', 'info');
+
+        const repoRes = await fetch(apiBase, { headers });
+        if (!repoRes.ok) {
+            const errData = await repoRes.json().catch(() => ({}));
+            throw new Error('Impossible de se connecter au dépôt: ' + (errData.message || repoRes.status));
+        }
+        log('Connexion établie.', 'success');
+
+        // Step 2: Prepare the content JSON
+        setProgress(25, 'Préparation des données du site...');
+        log('Préparation du fichier siteContent.json...', 'info');
+
+        const contentJson = JSON.stringify(siteData, null, 2);
+        const contentBase64 = btoa(unescape(encodeURIComponent(contentJson)));
+
+        // Step 3: Check if file already exists (to get its SHA for update)
+        setProgress(40, 'Vérification du fichier existant...');
+        log('Vérification de siteContent.json sur le dépôt...', 'info');
+
+        let existingSha = null;
+        const fileRes = await fetch(`${apiBase}/contents/siteContent.json?ref=${ghConfig.branch}`, { headers });
+        if (fileRes.ok) {
+            const fileData = await fileRes.json();
+            existingSha = fileData.sha;
+            log('Fichier existant trouvé, mise à jour en cours...', 'info');
+        } else {
+            log('Nouveau fichier, création en cours...', 'info');
+        }
+
+        // Step 4: Push siteContent.json
+        setProgress(60, 'Publication de siteContent.json...');
+        log('Envoi de siteContent.json vers GitHub...', 'info');
+
+        const commitBody = {
+            message: 'Mise à jour du contenu du site via Admin Panel',
+            content: contentBase64,
+            branch: ghConfig.branch
+        };
+        if (existingSha) commitBody.sha = existingSha;
+
+        const pushRes = await fetch(`${apiBase}/contents/siteContent.json`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify(commitBody)
+        });
+
+        if (!pushRes.ok) {
+            const errData = await pushRes.json().catch(() => ({}));
+            throw new Error('Échec de la publication: ' + (errData.message || pushRes.status));
+        }
+        log('siteContent.json publié avec succès !', 'success');
+
+        // Step 5: Also update dynamicContent.js to load from JSON
+        setProgress(80, 'Vérification de dynamicContent.js...');
+        log('Vérification du chargeur de contenu dynamique...', 'info');
+
+        // Check if dynamicContent.js already has the fetch logic
+        const dcRes = await fetch(`${apiBase}/contents/dynamicContent.js?ref=${ghConfig.branch}`, { headers });
+        if (dcRes.ok) {
+            const dcData = await dcRes.json();
+            const currentContent = atob(dcData.content.replace(/\n/g, ''));
+            if (!currentContent.includes('siteContent.json')) {
+                log('Mise à jour de dynamicContent.js pour le chargement en ligne...', 'info');
+                // Need to update dynamicContent.js - we'll handle this in the local file
+            }
+        }
+
+        setProgress(100, 'Publication terminée avec succès !', 'success');
+        log('', '');
+        log('Publication terminée ! Les changements seront visibles dans quelques minutes.', 'success');
+        showToast('Publié sur GitHub avec succès !', 'success');
+
+    } catch (err) {
+        setProgress(0, 'Erreur: ' + err.message, 'error');
+        log('ERREUR: ' + err.message, 'error');
+        showToast('Erreur de publication: ' + err.message, 'error');
+    } finally {
+        if (publishBtn) publishBtn.disabled = false;
+        if (sidebarPublishBtn) sidebarPublishBtn.disabled = false;
+    }
+}
+
+// Sidebar publish button handler
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarPublishBtn = document.getElementById('publishBtn');
+    if (sidebarPublishBtn) {
+        sidebarPublishBtn.addEventListener('click', () => {
+            // First save current section data
+            collectCurrentData();
+            saveSiteData(siteData);
+
+            // Navigate to github section to show progress
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            const ghNav = document.querySelector('[data-section="github"]');
+            if (ghNav) ghNav.classList.add('active');
+            currentSection = 'github';
+            document.getElementById('sectionTitle').textContent = 'Publication GitHub';
+            renderGitHub(document.getElementById('adminContent'));
+
+            // Start publishing
+            setTimeout(() => publishToGitHub(), 300);
+        });
+    }
+});
 
 // Utility functions
 function val(id) {

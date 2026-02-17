@@ -203,6 +203,33 @@ body {
     transition: all 0.3s;
 }
 
+.btn-publish {
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.btn-publish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn-publish:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .btn-remove:hover {
     background: var(--danger);
     color: white;
@@ -579,6 +606,116 @@ body {
 
 .file-upload-zone input[type="file"] {
     display: none;
+}
+
+/* Publish Progress */
+.publish-progress {
+    margin-top: 1.5rem;
+    display: none;
+}
+
+.publish-progress.active {
+    display: block;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: var(--gray-light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #7c3aed, var(--primary-cyan));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.progress-status {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.progress-status.success {
+    color: var(--success);
+}
+
+.progress-status.error {
+    color: var(--danger);
+}
+
+/* GitHub Config */
+.github-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.github-status-badge.connected {
+    background: rgba(0, 200, 83, 0.15);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.github-status-badge.disconnected {
+    background: rgba(255, 68, 68, 0.15);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.token-field {
+    position: relative;
+}
+
+.token-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+}
+
+.publish-log {
+    background: var(--gray-dark);
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.publish-log .log-entry {
+    color: var(--text-gray);
+}
+
+.publish-log .log-entry.success {
+    color: var(--success);
+}
+
+.publish-log .log-entry.error {
+    color: var(--danger);
+}
+
+.publish-log .log-entry.info {
+    color: var(--primary-cyan);
 }
 
 /* Responsive */
