@@ -11,7 +11,7 @@
     "linkedin": "https://www.linkedin.com/in/fid%C3%A8le-madj%C3%A9-messan-kouassi/",
     "linkedinName": "Fidèle Madjé Messan KOUASSI",
     "location": "Lomé, Togo",
-    "quote": "Qui ne tente rien n'a rien"
+    "quote": "La chance se creer"
   },
   "about": {
     "paragraphs": [
@@ -32,23 +32,59 @@
       "school": "ESIG GLOBAL SUCCESS",
       "degree": "Licence 1 - Génie Mécanique",
       "description": "Introduction aux principes fondamentaux du génie mécanique",
-      "items": ["Mathématiques de l'ingénieur et physique appliquée", "Statique et mécanique de base", "Dessin technique et CAO", "Science des matériaux", "Procédés de fabrication"]
+      "items": [
+        "Mathématiques de l'ingénieur et physique appliquée",
+        "Statique et mécanique de base",
+        "Dessin technique et CAO",
+        "Science des matériaux",
+        "Procédés de fabrication"
+      ]
     },
     {
       "year": "2025-2026",
       "school": "ESIG GLOBAL SUCCESS",
       "degree": "Licence 2 - Génie Mécanique & Productique",
       "description": "Développement de compétences en ingénierie appliquée",
-      "items": ["Conception mécanique avancée (SolidWorks, AutoCAD, Fusion 360)", "Résistance des matériaux et analyse structurelle", "Cinématique et dynamique des mécanismes", "Robotique et automatisation industrielle", "Gestion de projet et leadership"]
+      "items": [
+        "Conception mécanique avancée (SolidWorks, AutoCAD, Fusion 360)",
+        "Résistance des matériaux et analyse structurelle",
+        "Cinématique et dynamique des mécanismes",
+        "Robotique et automatisation industrielle",
+        "Gestion de projet et leadership"
+      ]
     }
   ],
   "skills": [
-    { "icon": "🎨", "title": "CAO/CAD", "description": "Maîtrise de SolidWorks, AutoCAD, Fusion 360 et Blender pour la modélisation 3D et la conception mécanique avancée." },
-    { "icon": "⚙️", "title": "Robotique & Automatisation", "description": "Conception de systèmes robotiques intelligents, automatisation industrielle et programmation Arduino." },
-    { "icon": "🔧", "title": "Fabrication & Usinage", "description": "Expertise en impression 3D, soudure, menuiserie, machines CNC et procédés de fabrication mécanique." },
-    { "icon": "💻", "title": "Programmation", "description": "Compétences en Python, HTML, Arduino IDE pour l'automatisation et le contrôle de systèmes." },
-    { "icon": "📊", "title": "Maintenance Industrielle", "description": "Maintenance mécanique, navale, diagnostic et réparation de systèmes électromécaniques complexes." },
-    { "icon": "👥", "title": "Gestion de Projet", "description": "Leadership d'équipe, coordination pluridisciplinaire, planification et livraison de solutions techniques." }
+    {
+      "icon": "🎨",
+      "title": "CAO/CAD",
+      "description": "Maîtrise de SolidWorks, AutoCAD, Fusion 360 et Blender pour la modélisation 3D et la conception mécanique avancée."
+    },
+    {
+      "icon": "⚙️",
+      "title": "Robotique & Automatisation",
+      "description": "Conception de systèmes robotiques intelligents, automatisation industrielle et programmation Arduino."
+    },
+    {
+      "icon": "🔧",
+      "title": "Fabrication & Usinage",
+      "description": "Expertise en impression 3D, soudure, menuiserie, machines CNC et procédés de fabrication mécanique."
+    },
+    {
+      "icon": "💻",
+      "title": "Programmation",
+      "description": "Compétences en Python, HTML, Arduino IDE pour l'automatisation et le contrôle de systèmes."
+    },
+    {
+      "icon": "📊",
+      "title": "Maintenance Industrielle",
+      "description": "Maintenance mécanique, navale, diagnostic et réparation de systèmes électromécaniques complexes."
+    },
+    {
+      "icon": "👥",
+      "title": "Gestion de Projet",
+      "description": "Leadership d'équipe, coordination pluridisciplinaire, planification et livraison de solutions techniques."
+    }
   ],
   "projects": [
     {
@@ -58,7 +94,12 @@
       "title": "Bras Robotique Industriel",
       "location": "ESIG Global Success • Octobre-Novembre 2025",
       "description": "Conception et fabrication complète d'un bras robotique industriel pour automatiser les tâches de manipulation. Participation à un concours interuniversitaire de pitch et innovation avec démonstration de compétences en robotique et automatisation.",
-      "tags": ["Robotique", "Automatisation", "CAO 3D", "Innovation"]
+      "tags": [
+        "Robotique",
+        "Automatisation",
+        "CAO 3D",
+        "Innovation"
+      ]
     },
     {
       "number": "02",
@@ -67,7 +108,12 @@
       "title": "Véhicule Électrique Compact",
       "location": "ESIG Global Success • Mai 2025",
       "description": "Chef de projet pour la conception et fabrication d'un véhicule électrique compact dédié à la logistique interne industrielle. Coordination d'équipe pluridisciplinaire et gestion complète des ressources durant la semaine de professionnalisation.",
-      "tags": ["Chef de Projet", "Mobilité Électrique", "Leadership", "Logistique"]
+      "tags": [
+        "Chef de Projet",
+        "Mobilité Électrique",
+        "Leadership",
+        "Logistique"
+      ]
     },
     {
       "number": "03",
@@ -76,7 +122,12 @@
       "title": "Bobinage de Moteur Asynchrone",
       "location": "2CIT Centre d'Innovation • Août 2025",
       "description": "Formation approfondie en bobinage et rebobinage de moteurs asynchrones. Réalisation pratique de diagnostics et réparations sur moteurs électriques, avec acquisition de compétences en maintenance et fiabilité des systèmes électromécaniques.",
-      "tags": ["Électromécanique", "Maintenance", "Moteurs", "Diagnostic"]
+      "tags": [
+        "Électromécanique",
+        "Maintenance",
+        "Moteurs",
+        "Diagnostic"
+      ]
     },
     {
       "number": "04",
@@ -85,18 +136,63 @@
       "title": "Maintenance Navale & Ponts Élévateurs",
       "location": "OTAM & 2CIT • Juillet-Août 2024 & Février 2025",
       "description": "Travaux de maintenance et mécanique navale chez OTAM (Omnium Togolais Assistance Maritime). Installation et maintenance professionnelle de ponts élévateurs pour ateliers automobiles de concessionnaires. Optimisation des équipements et amélioration de la fiabilité des systèmes.",
-      "tags": ["Maintenance Navale", "Installation", "Automobile", "Optimisation"]
+      "tags": [
+        "Maintenance Navale",
+        "Installation",
+        "Automobile",
+        "Optimisation"
+      ]
     }
   ],
   "gallery": [
-    { "image": "images/maintenance-navale-otam-portrait.jpeg", "category": "maintenance", "title": "Chantier Naval - OTAM Lomé", "type": "image" },
-    { "image": "images/maintenance-navale-otam.jpeg", "category": "maintenance", "title": "Stage Maintenance Navale - OTAM", "type": "image" },
-    { "image": "images/portrait-fidele-2cit.jpg", "category": "installation", "title": "Portrait Professionnel - Chantier 2CIT", "type": "image" },
-    { "image": "images/installation-echafaudage-2cit.jpg", "category": "installation", "title": "Travaux en Hauteur - Échafaudage 2CIT", "type": "image" },
-    { "image": "images/equipe-chantier-2cit.jpg", "category": "installation", "title": "Équipe de Chantier - 2CIT", "type": "image" },
-    { "image": "images/maintenance-pont-elevateur.jpg", "category": "maintenance", "title": "Maintenance Pont Élévateur - Atelier Auto", "type": "image" },
-    { "image": "images/formation-atelier-opem-akt.jpeg", "category": "formation", "title": "Atelier d'Usinage - OPEM & AKT", "type": "image" },
-    { "image": "images/formation-atelier-usinage.jpeg", "category": "formation", "title": "Formation Pratique - Atelier Mécanique", "type": "image" }
+    {
+      "image": "images/maintenance-navale-otam-portrait.jpeg",
+      "category": "maintenance",
+      "title": "Chantier Naval - OTAM Lomé",
+      "type": "image"
+    },
+    {
+      "image": "images/maintenance-navale-otam.jpeg",
+      "category": "maintenance",
+      "title": "Stage Maintenance Navale - OTAM",
+      "type": "image"
+    },
+    {
+      "image": "images/portrait-fidele-2cit.jpg",
+      "category": "installation",
+      "title": "Portrait Professionnel - Chantier 2CIT",
+      "type": "image"
+    },
+    {
+      "image": "images/installation-echafaudage-2cit.jpg",
+      "category": "installation",
+      "title": "Travaux en Hauteur - Échafaudage 2CIT",
+      "type": "image"
+    },
+    {
+      "image": "images/equipe-chantier-2cit.jpg",
+      "category": "installation",
+      "title": "Équipe de Chantier - 2CIT",
+      "type": "image"
+    },
+    {
+      "image": "images/maintenance-pont-elevateur.jpg",
+      "category": "maintenance",
+      "title": "Maintenance Pont Élévateur - Atelier Auto",
+      "type": "image"
+    },
+    {
+      "image": "images/formation-atelier-opem-akt.jpeg",
+      "category": "formation",
+      "title": "Atelier d'Usinage - OPEM & AKT",
+      "type": "image"
+    },
+    {
+      "image": "images/formation-atelier-usinage.jpeg",
+      "category": "formation",
+      "title": "Formation Pratique - Atelier Mécanique",
+      "type": "image"
+    }
   ],
   "experience": [
     {
@@ -131,9 +227,21 @@
     }
   ],
   "stats": [
-    { "target": 5, "label": "Projets Réalisés" },
-    { "target": 15, "label": "Technologies Maîtrisées" },
-    { "target": 8, "label": "Logiciels CAO/DAO" },
-    { "target": 5, "label": "Stages & Expériences" }
+    {
+      "target": 5,
+      "label": "Projets Réalisés"
+    },
+    {
+      "target": 15,
+      "label": "Technologies Maîtrisées"
+    },
+    {
+      "target": 8,
+      "label": "Logiciels CAO/DAO"
+    },
+    {
+      "target": 5,
+      "label": "Stages & Expériences"
+    }
   ]
 }
